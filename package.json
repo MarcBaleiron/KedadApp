@@ -1,0 +1,23 @@
+{
+  "name": "kedadapp",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/MarcBaleiron/KedadApp#readme",
+  "bugs": {
+    "url": "https://github.com/MarcBaleiron/KedadApp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcBaleiron/KedadApp.git"
+  },
+  "license": "ISC",
+  "author": "Marc Baleiron, Leo Seguín and Daniel García",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
