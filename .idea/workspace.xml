@@ -4,36 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14dc1bad-0e4c-4133-a508-c8095e5ab33f" name="Changes" comment="Agregamos los archivos y carpetas iniciales">
-      <change afterPath="$PROJECT_DIR$/public/app/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/app/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/app/group.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/app/js/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/app/js/calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/app/js/chat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/app/js/map.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config/env.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/authController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/chatController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/planController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/middlewares/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/middlewares/errorHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/groupModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/messageModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/userModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/authRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/chatRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/groupRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/planRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/authService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/chatService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/locationService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/formatters.js" afterDir="false" />
+    <list default="true" id="14dc1bad-0e4c-4133-a508-c8095e5ab33f" name="Changes" comment="Cambiamos la ruta a solo /public">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/app/css/calendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/app/css/map.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,8 +64,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\WebstormProjects\KedadApp\src\config" />
       <recent name="C:\Users\User\WebstormProjects\KedadApp\public" />
+      <recent name="C:\Users\User\WebstormProjects\KedadApp\src\config" />
       <recent name="C:\Users\User\WebstormProjects\KedadApp\src\app" />
     </key>
   </component>
@@ -112,7 +85,7 @@
       <updated>1790323374391</updated>
       <workItem from="1790323375804" duration="747000" />
       <workItem from="1790419640106" duration="6000" />
-      <workItem from="1793347192380" duration="811000" />
+      <workItem from="1793347192380" duration="1313000" />
     </task>
     <task id="LOCAL-00001" summary="Agregamos los archivos y carpetas iniciales">
       <option name="closed" value="true" />
@@ -122,7 +95,23 @@
       <option name="project" value="LOCAL" />
       <updated>1790324118189</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Cambiamos el ReadMe.md y agregamos todos los archivos del esqueleto">
+      <option name="closed" value="true" />
+      <created>1793348039407</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1793348039407</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Cambiamos la ruta a solo /public">
+      <option name="closed" value="true" />
+      <created>1793348106677</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1793348106677</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +119,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Agregamos los archivos y carpetas iniciales" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregamos los archivos y carpetas iniciales" />
+    <MESSAGE value="Cambiamos el ReadMe.md y agregamos todos los archivos del esqueleto" />
+    <MESSAGE value="Cambiamos la ruta a solo /public" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambiamos la ruta a solo /public" />
   </component>
 </project>

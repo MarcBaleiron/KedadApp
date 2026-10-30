@@ -1,68 +1,55 @@
-# KedadApp 🗺️📅
-KedadApp es una plataforma centralizada para organizar eventos y planes en grupos grandes, resolviendo problemas de disponibilidad e incertidumbre sobre qué actividades realizar, ajustándose a la ubicación de cada miembro.
+# KedadApp - Project Structure
 
-## Stack Tecnológico 🛠️
-Frontend: HTML5, CSS3, Vanilla JavaScript
-Backend: Node.js, Express.js
-Base de Datos: MySQL
-Despliegue: Vercel
----
-## Estructura del Proyecto (Esqueleto) 📂
-El proyecto sigue una Arquitectura en Capas (N-Tier) para separar la lógica de negocio, el acceso a datos y la interfaz de usuario, garantizando así un código modular y mantenible.
+This repository follows a strict **Layered Architecture (N-Tier)** to ensure maintainability and separation of concerns. As defined in our Architecture Decision Records (ADRs), the UI is completely decoupled from the database and optimized for desktop environments.
+
+## Directory Structure
+
 ```text
 KedadApp/
+├── public/                 # 1. PRESENTATION LAYER (Frontend UI)
+│   ├── index.html          # Main HTML structure (Desktop-first)
+│   ├── css/                # Stylesheets
+│   │   └── style.css
+│   ├── js/                 # Client-side Vanilla JavaScript
+│   │   ├── api.js          # Asynchronous fetch calls to the backend
+│   │   ├── chat.js         # Group chat DOM manipulation
+│   │   ├── map.js          # Google Maps API integration logic
+│   │   └── calendar.js     # Shared calendar UI logic
+│   └── assets/             # Images, icons, and static assets
 │
-├── public/                 # FRONTEND: Archivos estáticos servidos al cliente
-│   ├── css/                # Estilos globales y específicos
-│   │   ├── style.css
-│   │   ├── calendar.css
-│   │   └── map.css
-│   ├── js/                 # Lógica del lado del cliente (Peticiones fetch, DOM)
-│   │   ├── api.js          # Funciones para comunicarse con el backend
-│   │   ├── chat.js         # Lógica del chat en tiempo real
-│   │   ├── map.js          # Integración con Google Maps API
-│   │   └── calendar.js     # Lógica del calendario compartido
-│   ├── assets/             # Imágenes, iconos y fuentes
-│   ├── index.html          # Página principal (Login / Registro)
-│   ├── dashboard.html      # Panel principal del usuario y sus grupos
-│   └── group.html          # Vista específica de un grupo (Mapa, Chat, Calendario)
+├── src/                    # BACKEND (Node.js & Express)
+│   ├── config/             # Environment and external connections
+│   │   └── db.js           # MySQL database connection setup
+│   │
+│   ├── routes/             # API Endpoints mapping
+│   │   ├── userRoutes.js
+│   │   ├── groupRoutes.js
+│   │   └── chatRoutes.js
+│   │
+│   ├── controllers/        # 2. CONTROLLER LAYER
+│   │   ├── userController.js  # Validates incoming HTTP requests
+│   │   ├── groupController.js
+│   │   ├── planController.js  # Handles plan template requests
+│   │   └── chatController.js
+│   │
+│   ├── services/           # 3. SERVICE LAYER (Business Logic)
+│   │   ├── authService.js     # Password hashing (bcrypt) and JWT
+│   │   ├── locationService.js # Algorithms for map midpoint calculation
+│   │   └── chatService.js     # Chat logic and sanitization
+│   │
+│   ├── models/             # 4. DATA ACCESS LAYER (MySQL Queries)
+│   │   ├── userModel.js       # Raw parameterized SQL queries
+│   │   ├── groupModel.js
+│   │   └── templateModel.js   # Fetches plan templates from DB
+│   │
+│   ├── middlewares/        # Express Middlewares
+│   │   ├── auth.js         # Verifies JWT tokens for protected routes
+│   │   └── errorHandler.js # Global error catching
+│   │
+│   └── app.js              # Express app configuration & middlewares
 │
-├── src/                    # BACKEND: Lógica del servidor (Node + Express)
-│   ├── config/             # Configuraciones globales
-│   │   ├── db.js           # Conexión al pool de MySQL
-│   │   └── env.js          # Carga de variables de entorno (.env)
-│   │
-│   ├── routes/             # Enrutadores (Endpoints de la API REST)
-│   │   ├── authRoutes.js   # /api/auth (Login, Registro)
-│   │   ├── groupRoutes.js  # /api/groups (Crear grupos, añadir miembros)
-│   │   ├── chatRoutes.js   # /api/chat (Enviar y recibir mensajes)
-│   │   └── planRoutes.js   # /api/plans (Plantillas y sugerencias por ubicación)
-│   │
-│   ├── controllers/        # Controladores: Validan peticiones y llaman a servicios
-│   │   ├── authController.js
-│   │   ├── chatController.js
-│   │   └── planController.js
-│   │
-│   ├── services/           # Lógica de Negocio y algoritmos complejos
-│   │   ├── authService.js
-│   │   ├── chatService.js
-│   │   └── locationService.js # Cálculo del punto medio de localizaciones
-│   │
-│   ├── models/             # Capa de Acceso a Datos (DAL): Consultas SQL
-│   │   ├── userModel.js    # Consultas a la tabla Users
-│   │   ├── groupModel.js   # Consultas a la tabla Groups
-│   │   └── messageModel.js # Consultas a la tabla Messages
-│   │
-│   ├── middlewares/        # Middlewares de Express
-│   │   ├── auth.js         # Verificación de tokens JWT
-│   │   └── errorHandler.js # Manejo global de errores
-│   │
-│   └── utils/              # Funciones de ayuda (Helpers)
-│       └── formatters.js   # Formateo de fechas, sanitización de inputs, etc.
-│
-├── .env.example            # Ejemplo de variables de entorno (Sin contraseñas reales)
-├── .gitignore              # Archivos ignorados por Git (node_modules, .env)
-├── package.json            # Dependencias del proyecto (Express, mysql2, bcrypt, jsonwebtoken)
-├── server.js               # Punto de entrada principal de la aplicación
-└── README.md               # Documentación del proyecto (Este archivo)
-```
+├── server.js               # Application entry point (starts the server)
+├── .env                    # Environment variables (DB credentials, API Keys) - DO NOT COMMIT
+├── .gitignore              # Specifies intentionally untracked files (node_modules, .env)
+├── package.json            # Project dependencies (express, mysql2, bcrypt, etc.)
+└── README.md               # Project documentation and setup instructions
