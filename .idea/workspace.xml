@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="14dc1bad-0e4c-4133-a508-c8095e5ab33f" name="Changes" comment="Agregamos los archivos y carpetas iniciales">
+      <change afterPath="$PROJECT_DIR$/public/app/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/app/dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/app/group.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/app/js/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/app/js/calendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/app/js/chat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/app/js/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/env.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/authController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/chatController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/planController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/middlewares/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/middlewares/errorHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/groupModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/messageModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/userModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/authRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/chatRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/groupRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/planRoute.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/authService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/chatService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/locationService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/formatters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/app/css/calendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/app/css/map.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DaniSoria13&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MarcBaleiron/KedadApp.git&quot;,
+    &quot;accountId&quot;: &quot;1563a5a5-0016-4212-b91c-6c876590a124&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3JoNHdAi3dCD3YmXgUgbnHDxPv4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\WebstormProjects\KedadApp\src\config" />
+      <recent name="C:\Users\User\WebstormProjects\KedadApp\public" />
+      <recent name="C:\Users\User\WebstormProjects\KedadApp\src\app" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14dc1bad-0e4c-4133-a508-c8095e5ab33f" name="Changes" comment="" />
+      <created>1790323374391</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1790323374391</updated>
+      <workItem from="1790323375804" duration="747000" />
+      <workItem from="1790419640106" duration="6000" />
+      <workItem from="1793347192380" duration="811000" />
+    </task>
+    <task id="LOCAL-00001" summary="Agregamos los archivos y carpetas iniciales">
+      <option name="closed" value="true" />
+      <created>1790324118189</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1790324118189</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Agregamos los archivos y carpetas iniciales" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregamos los archivos y carpetas iniciales" />
+  </component>
+</project>
