@@ -1,17 +1,9 @@
 import { el } from '../utils/dom.js';
 import { View } from './View.js';
 
+/** MVC — VIEW: renders plan cards and reports refresh requests. */
 export class PlansView extends View {
-    bind() {
-        this.store.subscribe('plans', (plans) => this.render(plans));
-        this.ref('suggest').addEventListener('click', () => this.#refresh());
-    }
-
-    async load() {
-        this.store.set('plans', await this.api.getPlanSuggestions());
-    }
-
-    render(plans) {
+    render({ plans }) {
         this.ref('list').replaceChildren(
             ...plans.map(({ category, title, distanceKm }) =>
                 el('li', { className: 'plan' },
@@ -23,16 +15,12 @@ export class PlansView extends View {
         );
     }
 
-    async #refresh() {
-        const button = this.ref('suggest');
-        button.disabled = true;
-        this.showError();
-        try {
-            await this.load();
-        } catch {
-            this.showError('Plans could not be loaded. Please retry.');
-        } finally {
-            button.disabled = false;
-        }
+    /** @param {() => void} handler */
+    onRefresh(handler) {
+        this.ref('suggest').addEventListener('click', handler);
+    }
+
+    setBusy(isBusy) {
+        this.ref('suggest').disabled = isBusy;
     }
 }

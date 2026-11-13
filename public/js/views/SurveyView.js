@@ -1,17 +1,11 @@
 import { el } from '../utils/dom.js';
 import { View } from './View.js';
 
+/** MVC — VIEW: renders the survey and reports the chosen option. */
 export class SurveyView extends View {
-    bind() {
-        this.store.subscribe('survey', (survey) => this.render(survey));
-        this.ref('form').addEventListener('submit', (event) => this.#onSubmit(event));
-    }
-
-    async load() {
-        this.store.set('survey', await this.api.getSurvey());
-    }
-
-    render({ question, options, votedOptionId }) {
+    render({ survey }) {
+        if (!survey) return;
+        const { question, options, votedOptionId } = survey;
         const hasVoted = votedOptionId !== null;
 
         this.ref('question').textContent = question;
@@ -29,19 +23,12 @@ export class SurveyView extends View {
         this.ref('submit').disabled = hasVoted;
     }
 
-    async #onSubmit(event) {
-        event.preventDefault();
-        const selected = this.root.querySelector('input[name="vote"]:checked');
-        if (!selected) {
-            this.showError('Choose an option before voting.');
-            return;
-        }
-
-        this.showError();
-        try {
-            this.store.set('survey', await this.api.vote(Number(selected.value)));
-        } catch (error) {
-            this.showError(error.message);
-        }
+    /** @param {(optionId: number | null) => void} handler null when nothing is selected */
+    onVote(handler) {
+        this.ref('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const selected = this.root.querySelector('input[name="vote"]:checked');
+            handler(selected ? Number(selected.value) : null);
+        });
     }
 }
