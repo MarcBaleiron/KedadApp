@@ -6,7 +6,7 @@
     <meta name="description" content="KedadApp: coordinate plans and events for large groups.">
     <title>KedadApp</title>
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/script.js" defer></script>
+    <script type="module" src="../js/script.js"></script>
 </head>
 <body>
 
@@ -90,8 +90,8 @@
 
         <div class="grid">
 
-            <!-- Calendar -->
-            <section id="calendar" class="card card--calendar" aria-labelledby="calendar-title">
+            <!-- Calendar (CalendarView) -->
+            <section id="calendar" class="card card--calendar" data-view="calendar" aria-labelledby="calendar-title">
                 <header class="card__head">
                     <h2 id="calendar-title" class="card__title">Shared calendar</h2>
                     <div class="toolbar">
@@ -116,38 +116,7 @@
                             <th scope="col">Sun</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">Morning</th>
-                            <td><span class="slot slot--low">3</span></td>
-                            <td><span class="slot slot--low">2</span></td>
-                            <td><span class="slot slot--mid">6</span></td>
-                            <td><span class="slot slot--low">4</span></td>
-                            <td><span class="slot slot--mid">5</span></td>
-                            <td><span class="slot slot--high">10</span></td>
-                            <td><span class="slot slot--high">9</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Afternoon</th>
-                            <td><span class="slot slot--low">2</span></td>
-                            <td><span class="slot slot--mid">6</span></td>
-                            <td><span class="slot slot--mid">7</span></td>
-                            <td><span class="slot slot--low">3</span></td>
-                            <td><span class="slot slot--mid">8</span></td>
-                            <td><span class="slot slot--high">11</span></td>
-                            <td><span class="slot slot--mid">7</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Evening</th>
-                            <td><span class="slot slot--mid">5</span></td>
-                            <td><span class="slot slot--mid">6</span></td>
-                            <td><span class="slot slot--low">4</span></td>
-                            <td><span class="slot slot--mid">7</span></td>
-                            <td><span class="slot slot--high">12</span></td>
-                            <td><span class="slot slot--high">12</span></td>
-                            <td><span class="slot slot--low">3</span></td>
-                        </tr>
-                        </tbody>
+                        <tbody data-ref="body"></tbody>
                     </table>
                 </div>
 
@@ -157,36 +126,27 @@
                     <span class="slot slot--mid">some</span>
                     <span class="slot slot--high">most</span>
                 </p>
+                <p class="form-error" data-ref="error" role="alert" hidden></p>
             </section>
 
-            <!-- Chat -->
-            <section id="chat" class="card card--chat" aria-labelledby="chat-title">
+            <!-- Chat (ChatView) -->
+            <section id="chat" class="card card--chat" data-view="chat" aria-labelledby="chat-title">
                 <header class="card__head">
                     <h2 id="chat-title" class="card__title">Group chat</h2>
                 </header>
 
-                <ol class="messages" aria-live="polite">
-                    <li class="message">
-                        <span class="message__author">Marc</span>
-                        <p class="message__text">Anyone free on Friday night?</p>
-                        <time class="message__time" datetime="2026-11-06T18:02">18:02</time>
-                    </li>
-                    <li class="message message--own">
-                        <span class="message__author">You</span>
-                        <p class="message__text">Yes! Let's vote on a place.</p>
-                        <time class="message__time" datetime="2026-11-06T18:04">18:04</time>
-                    </li>
-                </ol>
+                <ol class="messages" data-ref="list" aria-live="polite"></ol>
 
-                <form class="chat-form" action="#" method="post">
+                <form class="chat-form" data-ref="form" action="#" method="post" novalidate>
                     <label class="visually-hidden" for="chat-input">Message</label>
-                    <input id="chat-input" class="input" type="text" name="message" maxlength="1000"
-                           placeholder="Write a message…" autocomplete="off" required>
-                    <button class="btn btn--primary" type="submit">Send</button>
+                    <input id="chat-input" class="input" data-ref="input" type="text" name="message"
+                           placeholder="Write a message…" autocomplete="off">
+                    <button class="btn btn--primary" data-ref="send" type="submit">Send</button>
                 </form>
+                <p class="form-error" data-ref="error" role="alert" hidden></p>
             </section>
 
-            <!-- Map -->
+            <!-- Map (placeholder, no view yet) -->
             <section id="map" class="card card--map" aria-labelledby="map-title">
                 <header class="card__head">
                     <h2 id="map-title" class="card__title">Member map</h2>
@@ -205,61 +165,32 @@
                 <p class="hint">Only approximate positions are shown. Sharing is optional.</p>
             </section>
 
-            <!-- Surveys -->
-            <section id="surveys" class="card card--survey" aria-labelledby="survey-title">
+            <!-- Surveys (SurveyView) -->
+            <section id="surveys" class="card card--survey" data-view="survey" aria-labelledby="survey-title">
                 <header class="card__head">
                     <h2 id="survey-title" class="card__title">Surveys</h2>
                     <button class="btn btn--small btn--ghost" type="button">+ Poll</button>
                 </header>
 
-                <form class="survey" action="#" method="post">
+                <form class="survey" data-ref="form" action="#" method="post">
                     <fieldset class="fieldset">
-                        <legend class="survey__question">Where do we have dinner?</legend>
-
-                        <label class="option">
-                            <input type="radio" name="vote" value="1">
-                            <span class="option__label">Pizzeria Napoli</span>
-                            <span class="option__count">5</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="vote" value="2">
-                            <span class="option__label">Sushi Bar</span>
-                            <span class="option__count">3</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="vote" value="3">
-                            <span class="option__label">Tapas &amp; Co.</span>
-                            <span class="option__count">4</span>
-                        </label>
+                        <legend class="survey__question" data-ref="question"></legend>
+                        <div class="fieldset" data-ref="options"></div>
                     </fieldset>
-                    <button class="btn btn--primary" type="submit">Vote</button>
+                    <button class="btn btn--primary" data-ref="submit" type="submit">Vote</button>
                 </form>
+                <p class="form-error" data-ref="error" role="alert" hidden></p>
             </section>
 
-            <!-- Plan templates -->
-            <section id="plans" class="card card--plans" aria-labelledby="plans-title">
+            <!-- Plan templates (PlansView) -->
+            <section id="plans" class="card card--plans" data-view="plans" aria-labelledby="plans-title">
                 <header class="card__head">
                     <h2 id="plans-title" class="card__title">Suggested plans</h2>
-                    <button class="btn btn--small btn--ghost" type="button">Suggest plans</button>
+                    <button class="btn btn--small btn--ghost" data-ref="suggest" type="button">Suggest plans</button>
                 </header>
 
-                <ul class="plan-list">
-                    <li class="plan">
-                        <span class="plan__cat">Food</span>
-                        <h3 class="plan__title">Dinner downtown</h3>
-                        <p class="plan__meta">1.2 km from the group midpoint</p>
-                    </li>
-                    <li class="plan">
-                        <span class="plan__cat">Sports</span>
-                        <h3 class="plan__title">5-a-side match</h3>
-                        <p class="plan__meta">2.4 km from the group midpoint</p>
-                    </li>
-                    <li class="plan">
-                        <span class="plan__cat">Culture</span>
-                        <h3 class="plan__title">Museum night</h3>
-                        <p class="plan__meta">0.8 km from the group midpoint</p>
-                    </li>
-                </ul>
+                <ul class="plan-list" data-ref="list"></ul>
+                <p class="form-error" data-ref="error" role="alert" hidden></p>
             </section>
 
         </div>
