@@ -1,0 +1,31 @@
+/* Sidebar: groups, subgroups and members */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+}
+
+.sidebar__head { display: flex; align-items: center; justify-content: space-between; }
+.sidebar__title { font-size: 1rem; }
+.sidebar__subtitle { margin-bottom: var(--space-2); font-size: .9rem; color: var(--color-muted); }
+
+.group-list { display: flex; flex-direction: column; gap: var(--space-1); }
+.group-list--sub { margin: var(--space-1) 0 0 var(--space-3); }
+
+.group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius);
+    color: var(--color-text);
+    text-decoration: none;
+}
+.group-item:hover { background: var(--color-bg); }
+.group-item.is-active { background: var(--color-primary-soft); font-weight: 700; }
+
+.member-list { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-3); }
+.member { display: flex; align-items: center; gap: var(--space-2); }

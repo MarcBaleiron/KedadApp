@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="KedadApp: coordinate plans and events for large groups.">
+    <title>KedadApp</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== Top bar ===== -->
+<header class="topbar">
+    <a class="brand" href="#" aria-label="KedadApp home">Kedad<span>App</span></a>
+
+    <nav class="topbar__nav" aria-label="Main navigation">
+        <ul class="nav-list">
+            <li><a class="nav-link" href="#calendar" aria-current="page">Calendar</a></li>
+            <li><a class="nav-link" href="#chat">Chat</a></li>
+            <li><a class="nav-link" href="#map">Map</a></li>
+            <li><a class="nav-link" href="#surveys">Surveys</a></li>
+            <li><a class="nav-link" href="#plans">Plans</a></li>
+        </ul>
+    </nav>
+
+    <div class="topbar__actions">
+        <label class="visually-hidden" for="lang">Language</label>
+        <select id="lang" class="select">
+            <option value="en" selected>EN</option>
+            <option value="es">ES</option>
+        </select>
+        <a class="btn btn--ghost" href="#login">Log in</a>
+        <a class="btn btn--primary" href="#signup">Sign up</a>
+    </div>
+</header>
+
+<div class="layout">
+
+    <!-- ===== Sidebar: groups ===== -->
+    <aside class="sidebar" aria-label="Groups">
+        <div class="sidebar__head">
+            <h2 class="sidebar__title">My groups</h2>
+            <button class="btn btn--small btn--primary" type="button">+ Group</button>
+        </div>
+
+        <ul class="group-list">
+            <li>
+                <a class="group-item is-active" href="#" aria-current="true">
+                    <span class="group-item__name">Friends</span>
+                    <span class="badge">12</span>
+                </a>
+                <ul class="group-list group-list--sub">
+                    <li><a class="group-item" href="#"><span class="group-item__name">Football Sunday</span><span class="badge">7</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="group-item" href="#">
+                    <span class="group-item__name">Study group</span>
+                    <span class="badge">5</span>
+                </a>
+            </li>
+        </ul>
+
+        <button class="btn btn--small btn--ghost btn--block" type="button">+ Create subgroup</button>
+
+        <section class="members" aria-labelledby="members-title">
+            <h3 id="members-title" class="sidebar__subtitle">Members <small>(12/50)</small></h3>
+            <ul class="member-list">
+                <li class="member"><span class="avatar" aria-hidden="true">L</span> Leo <span class="tag">Admin</span></li>
+                <li class="member"><span class="avatar" aria-hidden="true">M</span> Marc</li>
+                <li class="member"><span class="avatar" aria-hidden="true">D</span> Daniel</li>
+            </ul>
+            <button class="btn btn--small btn--ghost btn--block" type="button">+ Add member</button>
+        </section>
+    </aside>
+
+    <!-- ===== Main content ===== -->
+    <main id="main" class="main">
+
+        <header class="page-head">
+            <div>
+                <h1 class="page-head__title">Friends</h1>
+                <p class="page-head__sub">Next plan: <strong>Dinner</strong> · Fri 20:30</p>
+            </div>
+            <button class="btn btn--primary" type="button">+ New event</button>
+        </header>
+
+        <div class="grid">
+
+            <!-- Calendar (CalendarView) -->
+            <section id="calendar" class="card card--calendar" data-view="calendar" aria-labelledby="calendar-title">
+                <header class="card__head">
+                    <h2 id="calendar-title" class="card__title">Shared calendar</h2>
+                    <div class="toolbar">
+                        <button class="btn btn--small btn--ghost" type="button" aria-label="Previous week">&lsaquo;</button>
+                        <span class="toolbar__label">Nov 3 – 9</span>
+                        <button class="btn btn--small btn--ghost" type="button" aria-label="Next week">&rsaquo;</button>
+                    </div>
+                </header>
+
+                <div class="table-wrap">
+                    <table class="calendar">
+                        <caption class="visually-hidden">Weekly availability of the group</caption>
+                        <thead>
+                        <tr>
+                            <th scope="col">Time</th>
+                            <th scope="col">Mon</th>
+                            <th scope="col">Tue</th>
+                            <th scope="col">Wed</th>
+                            <th scope="col">Thu</th>
+                            <th scope="col">Fri</th>
+                            <th scope="col">Sat</th>
+                            <th scope="col">Sun</th>
+                        </tr>
+                        </thead>
+                        <tbody data-ref="body"></tbody>
+                    </table>
+                </div>
+
+                <p class="legend">
+                    Members available:
+                    <span class="slot slot--low">few</span>
+                    <span class="slot slot--mid">some</span>
+                    <span class="slot slot--high">most</span>
+                </p>
+                <p class="form-error" data-ref="error" role="alert" hidden></p>
+            </section>
+
+            <!-- Chat (ChatView) -->
+            <section id="chat" class="card card--chat" data-view="chat" aria-labelledby="chat-title">
+                <header class="card__head">
+                    <h2 id="chat-title" class="card__title">Group chat</h2>
+                </header>
+
+                <ol class="messages" data-ref="list" aria-live="polite"></ol>
+
+                <form class="chat-form" data-ref="form" action="#" method="post" novalidate>
+                    <label class="visually-hidden" for="chat-input">Message</label>
+                    <input id="chat-input" class="input" data-ref="input" type="text" name="message"
+                           placeholder="Write a message…" autocomplete="off">
+                    <button class="btn btn--primary" data-ref="send" type="submit">Send</button>
+                </form>
+                <p class="form-error" data-ref="error" role="alert" hidden></p>
+            </section>
+
+            <!-- Map (placeholder, no view yet) -->
+            <section id="map" class="card card--map" aria-labelledby="map-title">
+                <header class="card__head">
+                    <h2 id="map-title" class="card__title">Member map</h2>
+                    <label class="switch">
+                        <input type="checkbox" name="share-location">
+                        <span>Share my location</span>
+                    </label>
+                </header>
+
+                <!-- Replace with the external map API -->
+                <div class="map-placeholder" role="img" aria-label="Map of members' approximate locations">
+                    <span class="pin" style="--x: 30%; --y: 40%" aria-hidden="true"></span>
+                    <span class="pin" style="--x: 55%; --y: 60%" aria-hidden="true"></span>
+                    <span class="pin" style="--x: 70%; --y: 30%" aria-hidden="true"></span>
+                </div>
+                <p class="hint">Only approximate positions are shown. Sharing is optional.</p>
+            </section>
+
+            <!-- Surveys (SurveyView) -->
+            <section id="surveys" class="card card--survey" data-view="survey" aria-labelledby="survey-title">
+                <header class="card__head">
+                    <h2 id="survey-title" class="card__title">Surveys</h2>
+                    <button class="btn btn--small btn--ghost" type="button">+ Poll</button>
+                </header>
+
+                <form class="survey" data-ref="form" action="#" method="post">
+                    <fieldset class="fieldset">
+                        <legend class="survey__question" data-ref="question"></legend>
+                        <div class="fieldset" data-ref="options"></div>
+                    </fieldset>
+                    <button class="btn btn--primary" data-ref="submit" type="submit">Vote</button>
+                </form>
+                <p class="form-error" data-ref="error" role="alert" hidden></p>
+            </section>
+
+            <!-- Plan templates (PlansView) -->
+            <section id="plans" class="card card--plans" data-view="plans" aria-labelledby="plans-title">
+                <header class="card__head">
+                    <h2 id="plans-title" class="card__title">Suggested plans</h2>
+                    <button class="btn btn--small btn--ghost" data-ref="suggest" type="button">Suggest plans</button>
+                </header>
+
+                <ul class="plan-list" data-ref="list"></ul>
+                <p class="form-error" data-ref="error" role="alert" hidden></p>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2026 KedadApp · <a href="#">Terms of Service</a> · <a href="#">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+/* Page shell: sidebar + content, card grid, footer */
+.layout {
+    flex: 1;
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+}
+
+.main { padding: var(--space-4); min-width: 0; }
+
+.page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+.page-head__title { font-size: 1.75rem; line-height: 1.2; }
+.page-head__sub { color: var(--color-muted); }
+
+/* 12-column grid; each feature card declares its span */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-3);
+}
+.card--calendar { grid-column: span 8; }
+.card--chat     { grid-column: span 4; grid-row: span 2; }
+.card--map      { grid-column: span 8; }
+.card--survey   { grid-column: span 5; }
+.card--plans    { grid-column: span 7; }
+
+.footer {
+    padding: var(--space-3) var(--space-4);
+    font-size: .875rem;
+    color: var(--color-muted);
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+}

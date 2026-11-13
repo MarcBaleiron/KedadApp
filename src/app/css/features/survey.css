@@ -1,0 +1,17 @@
+/* Surveys */
+.survey { display: flex; flex-direction: column; gap: var(--space-3); }
+.survey__question { margin-bottom: var(--space-2); font-weight: 700; }
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+.option:hover,
+.option:has(input:checked) { border-color: var(--color-primary); background: #f7f8ff; }
+.option__label { flex: 1; }
+.option__count { font-weight: 700; color: var(--color-muted); }
