@@ -1,19 +1,17 @@
 /**
  * Application entry point.
- * Builds the shared dependencies once and lets the ViewFactory create every
- * view declared in the HTML with a data-view attribute.
+ * Creates the shared API client once and lets the FeatureFactory build a
+ * Model + View + Controller for every element declared with data-view.
  *
- *   html (data-view) → ViewFactory → View → ApiClient (Singleton) + Store (Observer)
+ *   user → View → Controller → Model → ApiClient (Singleton)
+ *                     ↑          │
+ *                     └─ render ─┘  (Observer: Model notifies, Controller refreshes View)
  */
 import { ApiClient } from './core/ApiClient.js';
-import { Store } from './core/Store.js';
-import { ViewFactory } from './core/ViewFactory.js';
+import { FeatureFactory } from './core/FeatureFactory.js';
 
-const dependencies = {
-    api: ApiClient.getInstance(),
-    store: new Store(),
-};
+const dependencies = { api: ApiClient.getInstance() };
 
 document.querySelectorAll('[data-view]').forEach((root) => {
-    ViewFactory.create(root.dataset.view, root, dependencies).mount();
+    FeatureFactory.create(root.dataset.view, root, dependencies).mount();
 });

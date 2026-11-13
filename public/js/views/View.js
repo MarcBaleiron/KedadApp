@@ -1,33 +1,14 @@
 /**
- * Base class for every view. A view only displays data and captures user
- * actions: it asks the ApiClient for data and publishes results to the Store.
- *
- * Lifecycle: mount() → bind() (subscribe + listeners) → load() (first fetch).
- * Subclasses implement bind() and load(); render() is up to each view.
+ * MVC — VIEW (base)
+ * A view only displays data and reports what the user does. It never calls
+ * the API, never holds business rules and never knows the model or controller:
+ * the controller hands it data (render) and registers handlers (onXxx).
  */
 export class View {
-    /**
-     * @param {HTMLElement} root
-     * @param {{api: import('../core/ApiClient.js').ApiClient, store: import('../core/Store.js').Store}} dependencies
-     */
-    constructor(root, { api, store }) {
+    /** @param {HTMLElement} root element this view controls */
+    constructor(root) {
         this.root = root;
-        this.api = api;
-        this.store = store;
     }
-
-    async mount() {
-        this.bind();
-        try {
-            await this.load();
-        } catch {
-            this.showError('Something went wrong. Please try again.');
-        }
-    }
-
-    bind() {}
-
-    async load() {}
 
     /** Finds an element declared in the HTML with data-ref="name". */
     ref(name) {
