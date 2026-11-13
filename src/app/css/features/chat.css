@@ -1,0 +1,23 @@
+/* Group chat */
+.messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-height: 260px;
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+.message {
+    max-width: 85%;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+}
+.message--own { align-self: flex-end; background: var(--color-primary-soft); }
+.message__author { font-size: .8rem; font-weight: 700; }
+.message__text { overflow-wrap: anywhere; }
+.message__time { font-size: .7rem; color: var(--color-muted); }
+
+.chat-form { display: flex; gap: var(--space-2); }

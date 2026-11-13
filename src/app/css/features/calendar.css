@@ -1,0 +1,19 @@
+/* Shared calendar: weekly availability heat table */
+.table-wrap { overflow-x: auto; }
+
+.calendar { width: 100%; border-collapse: separate; border-spacing: 4px; text-align: center; }
+.calendar th { font-size: .85rem; font-weight: 600; color: var(--color-muted); }
+.calendar tbody th { text-align: left; }
+
+.slot {
+    display: inline-block;
+    min-width: 2.5rem;
+    padding: var(--space-1) var(--space-2);
+    border-radius: 6px;
+    font-weight: 700;
+}
+.calendar .slot { display: block; padding: var(--space-3) 0; }
+
+.slot--low  { background: var(--color-low); }
+.slot--mid  { background: var(--color-mid); }
+.slot--high { background: var(--color-high); }

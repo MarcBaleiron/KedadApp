@@ -1,0 +1,30 @@
+/* Small inline elements: badge, tag, avatar */
+.badge {
+    padding: 0 var(--space-2);
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-primary-soft);
+}
+
+.tag {
+    padding: 0 var(--space-2);
+    border-radius: 4px;
+    font-size: .7rem;
+    font-weight: 700;
+    color: #7a4a00;
+    background: var(--color-low);
+}
+
+.avatar {
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: .8rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--color-primary);
+}

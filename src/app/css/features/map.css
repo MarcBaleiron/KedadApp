@@ -1,0 +1,22 @@
+/* Member map (placeholder until the external map API is wired) */
+.map-placeholder {
+    position: relative;
+    min-height: 260px;
+    border-radius: var(--radius);
+    background:
+        linear-gradient(var(--color-border) 1px, transparent 1px) 0 0 / 40px 40px,
+        linear-gradient(90deg, var(--color-border) 1px, transparent 1px) 0 0 / 40px 40px,
+        #e9f2ec;
+}
+
+.pin {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 16px;
+    height: 16px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 0 4px rgb(67 56 202 / 25%);
+}
